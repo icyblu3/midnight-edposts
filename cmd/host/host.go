@@ -20,7 +20,8 @@ func main() {
 	for {
 		/* TODO: should probably figure out what stuff to send to the server here */
 		// Server expects a 32byte-key from the host
-		inBytes, _ := hex.DecodeString("0000000000000000000000000000000000000000000000000000000000000000")
+		// You get the first valid byte in the key for free! 
+		inBytes, _ := hex.DecodeString("ea00000000000000000000000000000000000000000000000000000000000000")
 		_, err := serverConn.Write(inBytes)
         if err != nil {
                 log.Fatalln("Error sending guess:  ", err)
